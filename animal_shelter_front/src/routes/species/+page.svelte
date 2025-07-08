@@ -3,9 +3,6 @@
 	import LinkButton from '$lib/LinkButton.svelte';
 
 	let {data} = $props();
-
-	console.log(data);
-
 </script>
 
 <div class="flex justify-between my-4 items-center">
