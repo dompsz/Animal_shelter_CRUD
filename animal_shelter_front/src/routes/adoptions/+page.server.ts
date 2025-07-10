@@ -1,10 +1,19 @@
 import type { Pet } from '$lib/types';
 import {BACKEND} from '$env/static/private';
 
-export const load = async () => {
+export const load = async ({ url }) => {
+	const idealActive = url.searchParams.get('idealActive');
+	const idealFriendly = url.searchParams.get('idealFriendly');
+	const idealHealth = url.searchParams.get('idealHealth');
 
-	const REQUEST = await fetch(BACKEND+"/pets");
+	let endpoint = "/pets/adoptions"; // default score sort
 
+	// match sort
+	if (idealActive && idealFriendly && idealHealth) {
+		endpoint = `/pets/match?idealActive=${idealActive}&idealFriendly=${idealFriendly}&idealHealth=${idealHealth}`;
+	}
+
+	const REQUEST = await fetch(BACKEND + endpoint);
 	const DATA: Array<Pet> = await REQUEST.json();
 
 	return {

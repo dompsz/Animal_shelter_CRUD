@@ -27,4 +27,16 @@ public class Pet {
     private int friendly;
 
     private int health;
+
+    public int getScore() {
+        return active + friendly - health;
+    }
+
+    public double getMatchScore(int idealActive, int idealFriendly, int idealHealth) {
+        double activeDiff = Math.abs(active - idealActive);
+        double friendlyDiff = Math.abs(friendly - idealFriendly);
+        double healthDiff = Math.abs(health - idealHealth);
+
+        return 10 - (activeDiff + friendlyDiff + healthDiff) / 3.0;
+    }
 }

@@ -38,4 +38,28 @@ public class PetController {
         Optional<Pet> pet = petService.delete(id);
         return pet.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
+
+    @GetMapping("/adoptions")
+    public List<Pet> getPetsSortedByScore() {
+        List<Pet> pets = petService.getAll();
+        pets.sort((p1, p2) -> Integer.compare(p2.getScore(), p1.getScore()));
+        return pets;
+    }
+
+    @GetMapping("/match")
+    public List<Pet> getMatchedPets(
+            @RequestParam int idealActive,
+            @RequestParam int idealFriendly,
+            @RequestParam int idealHealth) {
+
+        List<Pet> pets = petService.getAll();
+
+        pets.sort((p1, p2) -> {
+            double score1 = p1.getMatchScore(idealActive, idealFriendly, idealHealth);
+            double score2 = p2.getMatchScore(idealActive, idealFriendly, idealHealth);
+            return Double.compare(score2, score1);
+        });
+
+        return pets;
+    }
 }

@@ -28,7 +28,7 @@ export const actions = {
 
 
 		console.log(`
-			--- WYSYŁAMY MAILA ---
+			--- TEST MAILA ---
 			Do: adopcje@schronisko.pl
 			Tytuł: Formularz adopcyjny - ${NAME}
 			Treść:
