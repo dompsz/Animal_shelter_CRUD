@@ -4,9 +4,8 @@
 	let { children } = $props();
 </script>
 
-
 <div>
-	<header class=" text-white bg-blue-300 mb-2 font-bold">
+	<header class=" mb-2 bg-blue-300 font-bold text-white">
 		<div class="container mx-auto px-5">
 			<div class="flex items-center justify-between">
 				<h1 class="py-5 text-2xl">Schronisko</h1>

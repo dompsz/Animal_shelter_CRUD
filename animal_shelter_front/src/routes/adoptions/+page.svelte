@@ -32,22 +32,22 @@
 		<input
 			type="number"
 			bind:value={idealActive}
-			placeholder="Aktywność (0-10)"
-			min="0" max="10"
+			placeholder="Aktywność (1-10)"
+			min="1" max="10"
 			class="border p-2 rounded min-w-40"
 		>
 		<input
 			type="number"
 			bind:value={idealFriendly}
-			placeholder="Przyjazność (0-10)"
-			min="0" max="10"
+			placeholder="Przyjazność (1-10)"
+			min="1" max="10"
 			class="border p-2 rounded min-w-40"
 		>
 		<input
 			type="number"
 			bind:value={idealHealth}
-			placeholder="Zdrowie (0-10)"
-			min="0" max="10"
+			placeholder="Zdrowie (1-10)"
+			min="1" max="10"
 			class="border p-2 rounded min-w-40"
 		>
 		<button onclick={searchMatches} class="bg-blue-500 text-white px-4 py-2 rounded">

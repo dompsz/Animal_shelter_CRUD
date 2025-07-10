@@ -62,9 +62,9 @@ public class Generator {
                 .map(data -> {
                     Pet p = new Pet();
                     p.setName(data.name());
-                    p.setActive(ThreadLocalRandom.current().nextInt(0, 11));
-                    p.setFriendly(ThreadLocalRandom.current().nextInt(0, 11));
-                    p.setHealth(ThreadLocalRandom.current().nextInt(0, 11));
+                    p.setActive(ThreadLocalRandom.current().nextInt(1, 11));
+                    p.setFriendly(ThreadLocalRandom.current().nextInt(1, 11));
+                    p.setHealth(ThreadLocalRandom.current().nextInt(1, 11));
                     p.setSpecies(findSpeciesByName(data.speciesName()));
                     return petRepo.save(p);
                 })
